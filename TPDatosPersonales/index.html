@@ -9,11 +9,11 @@
     body { margin: 0; padding: 0; }
     h2 { margin: 20px 0 10px 0; font-family: sans-serif; }
 
-    .block { margin: 0; padding: 0; }
-    .tableauPlaceholder { margin: 0 !important; padding: 0 !important; }
+    .block { margin: 0; padding: 0; display: block; }
+    .tableauPlaceholder { margin: 0 !important; padding: 0 !important; display: block; }
 
     .svgWrap { margin: 0; padding: 0; }
-    .svgWrap object { display: block; width: 100%; height: auto; }
+    .svgWrap img { display: block; width: 100%; height: auto; }
   </style>
 </head>
 
@@ -21,7 +21,7 @@
 
 <h2>¿Cuántas horas dormí cada día durante el último mes ?</h2>
 
-<div class="tableauPlaceholder" id="viz1765488908477" style="position: relative">
+<div class="block tableauPlaceholder" id="viz1765488908477" style="position: relative">
   <noscript>
     <a href="#">
       <img alt="Seguimiento de sueño período 21/10 - 30/11"
@@ -29,7 +29,6 @@
            style="border:none" />
     </a>
   </noscript>
-
   <object class="tableauViz" style="display:none;">
     <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
     <param name="embed_code_version" value="3" />
@@ -37,8 +36,7 @@
     <param name="name" value="Horasdesueo/Hoja2" />
     <param name="tabs" value="no" />
     <param name="toolbar" value="yes" />
-    <param name="static_image"
-           value="https://public.tableau.com/static/images/Ho/Horasdesueo/Hoja2/1.png" />
+    <param name="static_image" value="https://public.tableau.com/static/images/Ho/Horasdesueo/Hoja2/1.png" />
     <param name="animate_transition" value="yes" />
     <param name="display_static_image" value="yes" />
     <param name="display_spinner" value="yes" />
@@ -48,20 +46,10 @@
   </object>
 </div>
 
-<script type="text/javascript">
-  var divElement = document.getElementById('viz1765488908477');
-  var vizElement = divElement.getElementsByTagName('object')[0];
-  vizElement.style.width = '100%';
-  vizElement.style.height = '420px';
-  var scriptElement = document.createElement('script');
-  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-  vizElement.parentNode.insertBefore(scriptElement, vizElement);
-</script>
-
 <h2>¿Cómo es mi tipo de sueño por día de la semana?</h2>
 
 <div class="svgWrap">
-  <object data="TipoDeSuenoPorDia.svg" type="image/svg+xml"></object>
+  <img src="TipoDeSuenoPorDia.svg" alt="Tipo de sueño por día de la semana">
 </div>
 
 <h2>¿Cuántas horas en promedio duermo por día?</h2>
@@ -74,7 +62,6 @@
            style="border:none" />
     </a>
   </noscript>
-
   <object class="tableauViz" style="display:none;">
     <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
     <param name="embed_code_version" value="3" />
@@ -85,22 +72,26 @@
   </object>
 </div>
 
-<script type="text/javascript">
-  var divElement2 = document.getElementById('viz1765479653706');
-  var vizElement2 = divElement2.getElementsByTagName('object')[0];
-  vizElement2.style.width = "100%";
-  vizElement2.style.height = "600px";
-  var scriptElement2 = document.createElement('script');
-  scriptElement2.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-  vizElement2.parentNode.insertBefore(scriptElement2, vizElement2);
-</script>
-
 <h2>¿Cómo se distribuyen mis horas de sueño según el día?</h2>
 
 <iframe width="100%" height="476" frameborder="0"
-  src="https://observablehq.com/embed/ff260328db92aff6@47?cells=boxplot">
-</iframe>
+  src="https://observablehq.com/embed/ff260328db92aff6@47?cells=boxplot"></iframe>
+
+<script src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
+<script>
+  function setTableauSize(containerId, heightPx) {
+    var div = document.getElementById(containerId);
+    if (!div) return;
+    var obj = div.getElementsByTagName('object')[0];
+    if (!obj) return;
+    obj.style.width = '100%';
+    obj.style.height = heightPx + 'px';
+    obj.style.display = 'block';
+  }
+
+  setTableauSize('viz1765488908477', 420);
+  setTableauSize('viz1765479653706', 600);
+</script>
 
 </body>
 </html>
-
